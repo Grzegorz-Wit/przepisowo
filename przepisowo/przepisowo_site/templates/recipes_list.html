@@ -15,7 +15,7 @@
 				{% for recipe in object_list %}
 
 				<div class="col-sm-6 col-lg-3">
-					<a href="{% url 'recipe' recipe.pk %}">
+					<a href="{% url 'przepisowo_site:recipe-detail' recipe.slug recipe.pk %}">
 					<img class="thumbnail" src="
 					{% if recipe.image %}
 					{{recipe.image.url}}
@@ -25,7 +25,7 @@
 					">						
 					<div class="box-element product">
 						
-						<h6 class="recipe-title"><strong>{{recipe.name}}</strong></h6 class="recipe-title">
+						<h6 class="recipe-title"><strong>{{recipe.title}}</strong></h6 class="recipe-title">
 
 					</div>
 					</a>
