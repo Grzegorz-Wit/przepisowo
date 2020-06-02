@@ -40,7 +40,7 @@ class Recipe(models.Model):
             'slug': self.slug,
             'pk': self.id
         }
-        return reverse('pk-slug', kwargs=kwargs)
+        return reverse('przepisowo_site:recipe-detail', kwargs=kwargs)
 
     def save(self, *args, **kwargs):
         value = self.title
