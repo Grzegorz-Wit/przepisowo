@@ -10,6 +10,7 @@ class RecipesListView(ListView):
     paginate_by = 4
     template_name = 'recipes_list.html'
     context_object_name = 'recipes_list'
+    ordering = ['-id']
 
 
 class RecipeDetailView(DetailView):
