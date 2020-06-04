@@ -7,7 +7,7 @@ class RecipesListView(ListView):
 
     queryset = Recipe.objects.filter(status='published')
     query_pk_and_slug = True
-    paginate_by = 4
+    paginate_by = 8
     template_name = 'recipes_list.html'
     context_object_name = 'recipes_list'
     ordering = ['-id']
