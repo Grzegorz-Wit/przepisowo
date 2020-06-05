@@ -2,24 +2,30 @@
 {% load static %}
 
 {% block content %}
-	<main class="py-5 my-5">
-		<h1>Logowanie</h1>
-		<p>Wypełnij poniższy formularz, aby się zalogować:</p>
-		<form action="." method="post">
-			<div class="form-group">
-				{{ form.username.errors }}
-				<label for="{{ form.username.id_for_label }}">Login</label>
-				{{ form.username }}
-			</div>
-			<div class="form-group">
-				{{ form.password.errors }}
-				<label for="{{ form.password.id_for_label }}">Hasło</label>
-				{{ form.password }}
-			</div>
+<main class="my-5 py-5 ">
+    <section>
+        <div>
+            <h1>Logowanie</h1>
+            {% if form.errors %}
+            <p>Login użytkownika lub hasło są nieprawidłowe. Spróbuj ponownie.</p>
+            {% else %}
+            <p>Wypełnij poniższy formularz, aby się zalogować:</p>
+            {% endif %}
+            <form action="{% url 'account:login' %}" method="post">
+                <div class="form-group">
+                    <label>Login</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label>Hasło</label>
+                    {{ form.password }}
+                </div>
 
-			{% csrf_token %}
-			<input type="hidden" name="next" value="{{ next }}" />
-			<p><input type="submit" class="btn btn-primary mb-2" value="Zaloguj"></p>
-		</form>
-	</main>
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}"/>
+                <p><input type="submit" class="btn btn-primary mb-2" value="Zaloguj"></p>
+            </form>
+        </div>
+    </section>
+</main>
 {% endblock content %}

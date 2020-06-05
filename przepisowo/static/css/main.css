@@ -78,6 +78,10 @@ a:hover {
 	padding: 5px;
 }
 
+.bg-navbar-custom{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(74,168,86,1) 0%, rgba(175,205,0,1) 100%);
+
+}
 
 
 .hidden{
