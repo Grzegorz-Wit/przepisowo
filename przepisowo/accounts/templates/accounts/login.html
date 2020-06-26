@@ -11,7 +11,7 @@
             {% else %}
             <p>Wypełnij poniższy formularz, aby się zalogować:</p>
             {% endif %}
-            <form action="{% url 'account:login' %}" method="post">
+            <form action="{% url 'accounts:login' %}" method="post">
                 <div class="form-group">
                     <label>Login</label>
                     {{ form.username }}
@@ -20,9 +20,10 @@
                     <label>Hasło</label>
                     {{ form.password }}
                 </div>
-
                 {% csrf_token %}
-                <input type="hidden" name="next" value="{{ next }}"/>
+                {% if request.GET.next%}
+                    <input type="hidden" name="next" value="{{request.GET.next}}"/>
+                {% endif %}
                 <p><input type="submit" class="btn btn-primary mb-2" value="Zaloguj"></p>
             </form>
         </div>
