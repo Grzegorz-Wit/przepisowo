@@ -23,13 +23,9 @@ class Recipe(models.Model):
     image = models.ImageField(blank=True)
     preparation_time_in_minutes = models.IntegerField(blank=True, null=True)
 
-    def get_ingredients(self):
-        ingredients = Ingredient.objects.filter(recipe=self)
-        return ingredients
-
     def get_absolute_url(self):
         kwargs = {"slug": self.slug, "pk": self.id}
-        return reverse("przepisowo_site:recipe-detail", kwargs=kwargs)
+        return reverse("recipes:recipe-detail", kwargs=kwargs)
 
     def save(self, *args, **kwargs):
         value = self.title

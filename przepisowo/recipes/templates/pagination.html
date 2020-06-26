@@ -6,18 +6,17 @@
 			<a class="page-link" href="?page=
 			{% if page_obj.has_previous %}
 			{{page_obj.previous_page_number}}
-			{% endif %}"aria-label="Previous">
+			{% endif %}"
+			   aria-label="Previous">
 				<span aria-hidden="true">&laquo;</span>
 				<span class="sr-only">previous</span>
 			</a>
-		</li>   
-
+		</li>
 		{% if page.number|add:'-5' >= 1 %}
 			<li class="page-item">
 				<a class="page-link" href="?page={{ page.number|add:'-5' }}">&hellip;</a>
 			</li>
 		{% endif %}
-		
 		{% for n in page_obj.paginator.page_range %}
 			{% if page_obj.number == n %}
 					<li class="page-item active">
@@ -31,13 +30,11 @@
 				</li>
 			{% endif %}
 		{% endfor %}
-
 		{% if page.number|add:'5' <= page_obj.paginator.num_pages %}
 			<li class="page-item">
 				<a class="page-link" href="?page={{ page.number|add:'5' }}">&hellip;</a>
 			</li>
 		{% endif %}
-		
 		<li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
 			<a class="page-link" href="?page=
 			{% if page_obj.has_next %}

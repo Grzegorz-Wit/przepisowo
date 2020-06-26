@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('przepisowo_site', '0002_recipe_subname'),
+        ("recipes", "0002_recipe_subname"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='recipe',
-            name='slug',
-            field=models.SlugField(default='', editable=False, max_length=200),
+            model_name="recipe",
+            name="slug",
+            field=models.SlugField(default="", editable=False, max_length=200),
         ),
     ]

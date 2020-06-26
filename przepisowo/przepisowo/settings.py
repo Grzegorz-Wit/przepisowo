@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "przepisowo_site.apps.PrzepisowoSiteConfig",
+    "recipes.apps.RecipesConfig",
     "accounts.apps.AccountConfig",
     "django.contrib.admin",
     "django.contrib.auth",

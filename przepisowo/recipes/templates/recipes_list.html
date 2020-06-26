@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<main>
+    <section>
+        <div class="row my-5">
+            {% for recipe in recipes_list %}
+                <div class="col-sm-6 col-lg-3">
+                    <a href="{{recipe.get_absolute_url}}">
+                        <img class="img-fluid" src="
+                            {% if recipe.image %}
+                                {{recipe.image.url}}
+                            {% else %}
+                                {% static 'images/placeholder.png' %}
+                            {% endif %}
+                        ">
+                        <div class="box-element product">
+                            <h6 class="recipe-title"><strong>{{recipe.title}}</strong></h6>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% include 'pagination.html' with page=page_obj %}
+{% endblock content %}
