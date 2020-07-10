@@ -28,8 +28,8 @@ class Recipe(models.Model):
         return reverse("recipes:recipe-detail", kwargs=kwargs)
 
     def save(self, *args, **kwargs):
-        value = self.title
-        self.slug = slugify(value)
+        if not self.id:
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -45,4 +45,4 @@ class Ingredient(models.Model):
     )
 
     def __str__(self):
-        return f"{str(self.quantity)} {self.unit} {self.name}"
+        return f"{self.quantity} {self.unit} {self.name}"
